@@ -1,0 +1,30 @@
+ERROR:    Application startup failed. Exiting.
+ImportError: Packages `starlette` and `sse-starlette` are required to use the `JSONRPCApplication`. They can be added as a part of `a2a-sdk` optional dependencies, `a2a-sdk[http-server]`.
+    raise ImportError(
+  File "/code/.venv/lib/python3.12/site-packages/a2a/server/apps/jsonrpc/jsonrpc_app.py", line 224, in __init__
+    super().__init__(
+  File "/code/.venv/lib/python3.12/site-packages/a2a/server/apps/jsonrpc/fastapi_app.py", line 108, in __init__
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    a2a_app = A2AFastAPIApplication(agent_card=agent_card, http_handler=request_handler)
+  File "/code/app/app_utils/a2a.py", line 101, in attach_a2a_routes
+    await attach_a2a_routes(
+  File "/code/app/fast_api_app.py", line 57, in lifespan
+           ^^^^^^^^^^^^^^^^^^^^^
+    return await anext(self.gen)
+  File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+               ^^^^^^^^^^^^^
+    async with lifespan(app) as lifespan_context:
+  File "/code/.venv/lib/python3.12/site-packages/google/adk/cli/api_server.py", line 1161, in internal_lifespan
+           ^^^^^^^^^^^^^^^^^^^^^
+    return await anext(self.gen)
+  File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    async with self.lifespan_context(app) as maybe_state:
+  File "/code/.venv/lib/python3.12/site-packages/starlette/routing.py", line 654, in lifespan
+ERROR:    Traceback (most recent call last):
+  self._config = config or A2aAgentExecutorConfig()
+/code/.venv/lib/python3.12/site-packages/google/adk/a2a/executor/a2a_agent_executor.py:76: UserWarning: [EXPERIMENTAL] A2aAgentExecutorConfig: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subject to breaking changes. A2A protocol and SDK are themselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  agent_executor=A2aAgentExecutor(runner=runner),
+/code/app/app_utils/a2a.py:97: UserWarning: [EXPERIMENTAL] A2aAgentExecutor: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subject to breaking changes. A2A protocol and SDK are themselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  agent_card = await AgentCardBuilder(
+/code/app/app_utils/a2a.py:89: UserWarning: [EXPERIMENTAL] AgentCardBuilder: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subject to breaking changes. A2A protocol and SDK are themselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
